@@ -2,20 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.theme-btn{
+    background-color: #727272;
+    color: white;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 10px;
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.theme-btn:hover{
+    background-color: unset;
+    color: #727272;
+    border:1px solid #727272;
 }
