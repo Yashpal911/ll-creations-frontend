@@ -31,9 +31,11 @@ const Header = () => {
           {/* Right-Aligned Contact */}
           <div className="ml-auto">
             <Nav>
+              <Link href="/contact">
               <button className="theme-btn">
                 Contact Us
                 </button>
+              </Link>
             </Nav>
           </div>
         </div>
