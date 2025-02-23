@@ -10,20 +10,21 @@ const Header = () => {
       <Navbar>
         <div className="flex items-center justify-between w-full">
           {/* Left Logo */}
-          <Navbar.Brand href="#" className="text-lg font-bold">
+          <Navbar.Brand as={Link} href="/" className="text-lg font-bold">
             LL Creations
           </Navbar.Brand>
 
           {/* Centered Navigation */}
           <div className="flex-1 flex justify-center">
             <Nav className="flex space-x-6">
-              <Nav.Item as={Link} href="/" className="!text-gray-900 hover:!text-blue-500">Home</Nav.Item>
-              <Nav.Item as={Link} href="/about" className="!text-gray-900 hover:!text-blue-500">Services</Nav.Item>
-              <Nav.Menu title="Work">
+              <Nav.Item as={Link} href="/" className="headerLinks">Home</Nav.Item>
+              <Nav.Item as={Link} href="/about" className="headerLinks">About Us</Nav.Item>
+              <Nav.Item as={Link} href="/work" className="headerLinks">Work</Nav.Item>
+              {/* <Nav.Menu title="Work">
                 <Nav.Item className="!text-gray-900 hover:!text-blue-500">Logo</Nav.Item>
                 <Nav.Item className="!text-gray-900 hover:!text-blue-500">Ui/Ux</Nav.Item>
                 <Nav.Item className="!text-gray-900 hover:!text-blue-500">SolidWorks</Nav.Item>
-              </Nav.Menu>
+              </Nav.Menu> */}
             </Nav>
           </div>
 

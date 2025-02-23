@@ -14,12 +14,12 @@ export default function Home() {
     <>
     <div>
        <Swiper
-        spaceBetween={30}
+        spaceBetween={0}
         centeredSlides={true}
         effect={'fade'}
         loop={true}
         autoplay={{
-          delay: 6000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -27,12 +27,20 @@ export default function Home() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[81vh] "
+        className="mySwiper h-[85vh]"
         >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>
+          <img src='/Images/img1.jpg'/>
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src='/Images/img2.jpg'/>
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src='/Images/img3.jpg'/>
+        </SwiperSlide>
+        <SwiperSlide>
+        <img src='/Images/img4.jpg'/>
+        </SwiperSlide>
       </Swiper>
         </div>
     </>

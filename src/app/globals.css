@@ -16,3 +16,32 @@
     color: #727272;
     border:1px solid #727272;
 }
+.aboutsubheading{
+    font-size: 16px;
+    color: #727272;
+}
+.headerLinks{
+    font-size: 16px;
+    color: black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.headerLinks:hover{
+    background-color: unset !important;
+}
+
+.headerLinks:after{
+    content: "";
+    position:absolute;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(to right, red, orange);
+    transform: translate(0px,25px);
+}
+
+.headerLinks:hover:after{
+    width: 100%;
+    transition: 0.3s;
+}
