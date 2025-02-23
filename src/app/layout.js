@@ -1,7 +1,7 @@
-
-import Header from "@/header/header";
+import Header from "./header/header";
 import "./globals.css";
 import 'rsuite/dist/rsuite.min.css'
+import Footer from "./footer/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -14,9 +14,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header/>
       <main>{children}</main>
-      <footer className="bg-gray-800 text-white p-4 text-center bottom-0 w-full">
-        Footer
-      </footer>
+       <Footer/>
       </body>
     </html>
   );
