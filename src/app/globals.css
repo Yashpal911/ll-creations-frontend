@@ -46,5 +46,7 @@
     transition: 0.3s;
 }
 
-
-/* Commented for commit */
+.serviceCard{
+    border-radius: 20px !important;
+    padding: 10px;
+}
