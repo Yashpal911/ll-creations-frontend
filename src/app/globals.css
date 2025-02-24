@@ -49,4 +49,9 @@
 .serviceCard{
     border-radius: 20px !important;
     padding: 10px;
+    height: 300px;
+}
+
+.serviceSection .rs-row{
+    margin: 20px auto;
 }

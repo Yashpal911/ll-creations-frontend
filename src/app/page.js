@@ -24,6 +24,20 @@ const data = [
   "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
     joined: "March 2022",
   },
+  {
+    img: "/Images/img2.jpg",
+    heading: "POSTER DESIGN",
+    description:
+  "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
+    joined: "March 2022",
+  },
+  {
+    img: "/Images/img2.jpg",
+    heading: "POSTER DESIGN",
+    description:
+  "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
+    joined: "March 2022",
+  },
 ];
 
 export default function Home() {
@@ -70,12 +84,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='p-5 bg-[#f1f1f1]'>
+        <section className='p-5 bg-[#f1f1f1] serviceSection'>
           <h1 className='text-center'>Our Services</h1>
-          <Row className='flex justify-evenly items-center mt-10'>
+          <Row className='w-4/5'>
           {data.map((data, index) => (
-        <Col lg={7} key={index}>
-          <Card className="serviceCard">
+        <Col lg={8} key={index}>
+          <Card className="serviceCard mb-10">
             <Card.Header className='flex gap-5 items-center'>
               <span><img src={data.img} width={150}/></span>
               <h5>{data.heading}</h5>
@@ -88,6 +102,11 @@ export default function Home() {
         </Col>
       ))}
           </Row>
+        </section>
+
+
+        <section className='clientsSection'>
+          <h1>Clients</h1>
         </section>
       </div>
     </>
