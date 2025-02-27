@@ -20,38 +20,51 @@
     font-size: 16px;
     color: #727272;
 }
-.headerLinks{
-    font-size: 16px;
+.headerLinks a{
+    font-size: 18px;
     color: black;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.headerLinks:hover{
+
+
+.headerLinks a:hover{
     background-color: unset !important;
+    text-decoration: none;
 }
 
-.headerLinks:after{
+.headerLinks a:after{
     content: "";
     position:absolute;
     width: 0%;
     height: 3px;
     background: linear-gradient(to right, red, orange);
-    transform: translate(0px,25px);
+    transform: translate(0px,20px);
 }
 
-.headerLinks:hover:after{
+.headerLinks a:hover:after{
     width: 100%;
     transition: 0.3s;
 }
 
 .serviceCard{
     border-radius: 20px !important;
-    padding: 10px;
-    height: 300px;
 }
 
-.serviceSection .rs-row{
-    margin: 20px auto;
+.serviceImg{
+    border-radius: 20px 20px 0px 0px;
+}
+
+.serviceCard:hover .serviceImg{
+   filter: blur(1px) brightness(1.2) contrast(1);
+   transition: .3s;
+}
+
+.serviceCard:hover .serviceHeading{
+    font-size: 20px;
+    color: green;
+    transition: .3s;
+    cursor: pointer;
 }

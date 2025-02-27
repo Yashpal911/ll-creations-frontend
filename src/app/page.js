@@ -6,8 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { Card, Col, Row, Text } from 'rsuite';
+import 'swiper/css/scrollbar';
+import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
+import { Card} from 'rsuite';
 
 const data = [
   {
@@ -18,24 +19,24 @@ const data = [
     joined: "January 2023",
   },
   {
-    img: "/Images/img2.jpg",
+    img: "/Images/img1.jpg",
     heading: "POSTER DESIGN",
     description:
-  "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
+      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
     joined: "March 2022",
   },
   {
-    img: "/Images/img2.jpg",
+    img: "/Images/img1.jpg",
     heading: "POSTER DESIGN",
     description:
-  "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
+      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
     joined: "March 2022",
   },
   {
-    img: "/Images/img2.jpg",
+    img: "/Images/img1.jpg",
     heading: "POSTER DESIGN",
     description:
-  "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
+      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
     joined: "March 2022",
   },
 ];
@@ -54,11 +55,11 @@ export default function Home() {
             delay: 5000,
             disableOnInteraction: false,
           }}
-          pagination={{
-            clickable: true,
+          scrollbar={{
+            hide: true,
           }}
           navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
+          modules={[Autoplay, Scrollbar, Navigation]}
           className="mySwiper h-[85vh]"
         >
           <SwiperSlide>
@@ -85,26 +86,32 @@ export default function Home() {
         </section>
 
         <section className='p-5 bg-[#f1f1f1] serviceSection'>
-          <h1 className='text-center'>Our Services</h1>
-          <Row className='w-4/5'>
-          {data.map((data, index) => (
-        <Col lg={8} key={index}>
-          <Card className="serviceCard mb-10">
-            <Card.Header className='flex gap-5 items-center'>
-              <span><img src={data.img} width={150}/></span>
-              <h5>{data.heading}</h5>
-              </Card.Header>
-            <Card.Body>{data.description}</Card.Body>
-            <Card.Footer>
-              <a className="text-muted">Read More</a>
-            </Card.Footer>
-          </Card>
-        </Col>
-      ))}
-          </Row>
+          <h1 className='text-center mb-4'>Our Services</h1>
+          <Swiper
+        slidesPerView={3}
+        spaceBetween={20}
+        className="mySwiper w-3/4"
+      >
+            {data.map((data, index) => (
+              <SwiperSlide key={index}>
+                <Card className="serviceCard mb-10">
+                  <Card.Body className='p-0'>
+                    <div className='w-full'>
+                      <img src={data.img} className='serviceImg'/>
+                    </div>
+                    <h5 className='mt-6 px-3 serviceHeading font-extrabold'>{data.heading}</h5>
+                    <p className='text-gray-400 mt-4 px-3 text-base line-clamp-4'>
+                    {data.description}
+                    </p>
+                  </Card.Body>
+                  <Card.Footer>
+                    <a className="px-3 text-end cursor-pointer">Read More</a>
+                  </Card.Footer>
+                </Card>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </section>
-
-
         <section className='clientsSection'>
           <h1>Clients</h1>
         </section>
