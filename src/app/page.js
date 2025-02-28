@@ -89,9 +89,17 @@ export default function Home() {
           <h1 className='text-center mb-4'>Our Services</h1>
           <Swiper
         slidesPerView={3}
-        spaceBetween={20}
-        className="mySwiper w-3/4"
-      >
+        spaceBetween={30}
+          centeredSlides={true}
+          effect={'fade'}
+          loop={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          className="mySwiper w-3/4">
+
             {data.map((data, index) => (
               <SwiperSlide key={index}>
                 <Card className="serviceCard mb-10">
