@@ -5,23 +5,48 @@ import { Col, Grid, Row } from "rsuite"
 const Footer = () => {
     return (
         <>
-            <footer className="bg-gray-800 text-white py-10 text-center bottom-0  w-full">
-                <Grid fluid>
+            <footer className="bg-gray-800 text-white text-center bottom-0  w-full">
+                <Grid fluid className="border-b border-white py-10">
                     <Row>
-                        <Col xs={6} sm={6} md={6} lg={6} className="text-center">
-                            <div>LOGO</div>
+                        <Col lg={2}></Col>
+                        <Col lg={12} className="text-start">
+                            <h1>LOGO</h1>
+                            <p className="text-lg mb-3">Description Linasdausdadnhaugfbsjugausdhasuid<br/> asdasdddddsdasdas</p>
+                            <div className="flex gap-2">
+                                <span>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="40"  height="40"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"    className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+                                </span>
+                                <span>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="40"  height="40"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"    className="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+                                </span>
+                                <span>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="40"  height="40"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"    className="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>
+                                </span>
+                                <span>
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="40"  height="40"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"    className="icon icon-tabler icons-tabler-outline icon-tabler-brand-youtube"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M2 8a4 4 0 0 1 4 -4h12a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-12a4 4 0 0 1 -4 -4v-8z" /><path d="M10 9l5 3l-5 3z" /></svg>
+                                </span>
+                            </div>
                         </Col>
-                        <Col xs={6} sm={6} md={6} lg={6} className="text-center">
-                            <div>Quick Links</div>
+                        <Col lg={5} className=" text-start">
+                                <h3>Quick Links</h3>
+                            <ul className="footerLinks">
+                                <li>Home</li>
+                                <li>About</li>
+                                <li>Work</li>
+                            </ul>
                         </Col>
-                        <Col xs={6} sm={6} md={6} lg={6} className="text-center">
-                            <div>Social Links</div>
-                        </Col>
-                        <Col xs={6} sm={6} md={6} lg={6} className="text-center">
-                            <div>Contact</div>
+                        <Col lg={5} className="text-start">
+                            <h3>Contact</h3>
+                            <ul className="footerLinks">
+                                <li>Email</li>
+                                <li>Contact no.</li>
+                            </ul>
                         </Col>
                     </Row>
                 </Grid>
+               <div className="text-center py-4">
+                <p className="text-base">&copy; 2025. Company Name. All rights reserved.</p>
+               </div>
             </footer>
         </>
     )

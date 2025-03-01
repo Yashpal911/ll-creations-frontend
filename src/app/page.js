@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
-import { Card} from 'rsuite';
+import { Card } from 'rsuite';
 
 const data = [
   {
@@ -87,29 +87,41 @@ export default function Home() {
 
         <section className='p-5 bg-[#f1f1f1] serviceSection'>
           <h1 className='text-center mb-4'>Our Services</h1>
-          <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-          centeredSlides={true}
-          effect={'fade'}
-          loop={true}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          modules={[Autoplay]}
-          className="mySwiper w-3/4">
 
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+            centeredSlides={true}
+            effect={'fade'}
+            loop={true}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper w-3/4"
+            onSwiper={(swiper) => {
+              const swiperElement = swiper.el;
+
+              swiperElement.addEventListener("mouseenter", () => {
+                swiper.autoplay.stop(); // Stop autoplay on hover
+              });
+
+              swiperElement.addEventListener("mouseleave", () => {
+                swiper.autoplay.start(); // Resume autoplay when hover is removed
+              });
+            }}
+          >
             {data.map((data, index) => (
               <SwiperSlide key={index}>
                 <Card className="serviceCard mb-10">
                   <Card.Body className='p-0'>
                     <div className='w-full'>
-                      <img src={data.img} className='serviceImg'/>
+                      <img src={data.img} className='serviceImg' />
                     </div>
                     <h5 className='mt-6 px-3 serviceHeading font-extrabold'>{data.heading}</h5>
                     <p className='text-gray-400 mt-4 px-3 text-base line-clamp-4'>
-                    {data.description}
+                      {data.description}
                     </p>
                   </Card.Body>
                   <Card.Footer>
@@ -119,9 +131,6 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
-        </section>
-        <section className='clientsSection'>
-          <h1>Clients</h1>
         </section>
       </div>
     </>

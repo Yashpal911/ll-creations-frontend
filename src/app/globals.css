@@ -68,3 +68,17 @@
     transition: .3s;
     cursor: pointer;
 }
+
+.footerLinks{
+    padding: 0px 10px;
+}
+
+.footerLinks li{
+    font-size: 18px;
+    margin: 25px 0px;
+}
+
+.footerLinks li:hover{
+    color: rgb(139, 139, 139);
+    cursor: pointer;
+}
