@@ -17,8 +17,10 @@
     border:1px solid #727272;
 }
 .aboutsubheading{
-    font-size: 16px;
+    margin-top: 20px;
+    font-size: 18px;
     color: #727272;
+    line-height:35px;
 }
 .headerLinks a{
     font-size: 18px;

@@ -9,6 +9,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 import { Card } from 'rsuite';
+import Image from 'next/image';
 
 const data = [
   {
@@ -42,6 +43,7 @@ const data = [
 ];
 
 export default function Home() {
+  let swiperInstance = null;
 
   return (
     <>
@@ -76,12 +78,16 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
 
-        <section className='p-24 flex justify-center items-center'>
-          <div className="w-[50%] text-center">
-            <h1>About</h1>
+        <section className='p-24 flex justify-between'>
+          <div className="w-1/2">
+            <h1>About Company Name</h1>
             <p className="aboutsubheading">
               Welcome to my digital playground, where creativity meets functionality! As a UI/UX designer, I specialize in building visually compelling and user-friendly interfaces that enhance engagement and elevate brands. With a deep understanding of user psychology, wireframing, and prototyping, I transform ideas into pixel-perfect designs.
             </p>
+            <button className='theme-btn mt-10'>More About Company</button>
+          </div>
+          <div className='w-2/5'>
+            <Image src="/Images/about-bg.jpg" width={500} height={100} alt='img' />
           </div>
         </section>
 
@@ -92,24 +98,26 @@ export default function Home() {
             slidesPerView={3}
             spaceBetween={30}
             centeredSlides={true}
-            effect={'fade'}
+            effect={"fade"}
             loop={true}
             autoplay={{
-              delay: 1500,
+              delay: 2000,
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
             className="mySwiper w-3/4"
             onSwiper={(swiper) => {
-              const swiperElement = swiper.el;
-
-              swiperElement.addEventListener("mouseenter", () => {
-                swiper.autoplay.stop(); // Stop autoplay on hover
-              });
-
-              swiperElement.addEventListener("mouseleave", () => {
-                swiper.autoplay.start(); // Resume autoplay when hover is removed
-              });
+              swiperInstance = swiper;
+            }}
+            onMouseEnter={() => {
+              if (swiperInstance && swiperInstance.autoplay) {
+                swiperInstance.autoplay.stop(); // Stop autoplay on hover
+              }
+            }}
+            onMouseLeave={() => {
+              if (swiperInstance && swiperInstance.autoplay) {
+                swiperInstance.autoplay.start(); // Resume autoplay when mouse leaves
+              }
             }}
           >
             {data.map((data, index) => (
@@ -131,6 +139,15 @@ export default function Home() {
               </SwiperSlide>
             ))}
           </Swiper>
+        </section>
+
+        {/* Clients */}
+        <section className='px-24 py-10 flex justify-evenly'>
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-3xl font-bold'>Customers</p>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3'></div>
+            <p className='text-3xl font-extrabold'>1232</p>
+          </div>
         </section>
       </div>
     </>
