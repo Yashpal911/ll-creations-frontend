@@ -84,3 +84,21 @@
     color: rgb(139, 139, 139);
     cursor: pointer;
 }
+.moveAnimation{
+animation: moveAnimation 3s infinite ;
+}
+
+@keyframes moveAnimation {
+    0% {
+        top: -40px;
+        right: 0px;
+    } 
+    50%{
+        top: -35px;
+        right: 5px;
+    } 
+    100%{
+        top: -40px;
+        right: 0px;
+    }
+}

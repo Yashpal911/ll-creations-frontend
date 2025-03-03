@@ -78,6 +78,7 @@ export default function Home() {
           </SwiperSlide>
         </Swiper>
 
+
         <section className='p-24 flex justify-between'>
           <div className="w-1/2">
             <h1>About Company Name</h1>
@@ -86,10 +87,17 @@ export default function Home() {
             </p>
             <button className='theme-btn mt-10'>More About Company</button>
           </div>
-          <div className='w-2/5'>
-            <Image src="/Images/about-bg.jpg" width={500} height={100} alt='img' />
+          <div className='w-2/5 relative'>
+          <span>
+            <Image src="/Images/about-bg.jpg" width={500} height={500} alt='img' className='rounded-3xl'/>
+          </span>
+          <span className='absolute -top-10 p-3 right-0 bg-gray-200 rounded-xl shadow-lg moveAnimation'>
+            <Image src="/Images/about-bg.jpg" width={150} height={150} alt='img' className='rounded-xl'/>
+          </span>
+          
           </div>
         </section>
+
 
         <section className='p-5 bg-[#f1f1f1] serviceSection'>
           <h1 className='text-center mb-4'>Our Services</h1>
@@ -105,7 +113,7 @@ export default function Home() {
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
-            className="mySwiper w-3/4"
+            className="mySwiper w-4/5"
             onSwiper={(swiper) => {
               swiperInstance = swiper;
             }}
@@ -145,7 +153,30 @@ export default function Home() {
         <section className='px-24 py-10 flex justify-evenly'>
           <div className='flex flex-col items-center justify-center'>
             <p className='text-3xl font-bold'>Customers</p>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3'></div>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center'>
+            <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60}/>
+            </div>
+            <p className='text-3xl font-extrabold'>1232</p>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-3xl font-bold'>Customers</p>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center'>
+            <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60}/>
+            </div>
+            <p className='text-3xl font-extrabold'>1232</p>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-3xl font-bold'>Customers</p>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center'>
+            <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60}/>
+            </div>
+            <p className='text-3xl font-extrabold'>1232</p>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
+            <p className='text-3xl font-bold'>Customers</p>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center'>
+            <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60}/>
+            </div>
             <p className='text-3xl font-extrabold'>1232</p>
           </div>
         </section>
