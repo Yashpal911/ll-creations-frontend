@@ -1,9 +1,11 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current route
 
   return (
     <>
@@ -29,10 +31,23 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Desktop Navigation Links */}
         <div className="hidden lg:flex lg:gap-x-12 headerLinks">
-          <Link href="/" className="text-sm font-semibold text-gray-900">Home</Link>
-          <Link href="/about" className="text-sm font-semibold text-gray-900">About</Link>
-          <Link href="/work" className="text-sm font-semibold text-gray-900">Work</Link>
+          {[
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+            { name: "Work", path: "/work" },
+          ].map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`text-sm font-semibold transition-all text-gray-900 ${
+                pathname === item.path ? "active" : ""
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -48,10 +63,11 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu (Sliding from Right) */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed inset-y-0 right-0 z-20 w-64 bg-white px-6 py-6 shadow-lg transform transition-transform duration-300 ease-in-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed inset-y-0 right-0 z-20 w-64 bg-white px-6 py-6 shadow-lg transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex items-center justify-between">
           <a href="#" className="-m-1.5 p-1.5">
@@ -69,11 +85,25 @@ const Header = () => {
             </svg>
           </button>
         </div>
+
+        {/* Mobile Navigation Links */}
         <div className="mt-6 space-y-4">
-          <a href="#" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Home</a>
-          <a href="#" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">About</a>
-          <a href="#" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Work</a>
-          <a href="/contact" className="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50">Contact Us</a>
+          {[
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+            { name: "Work", path: "/work" },
+            { name: "Contact Us", path: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              className={`block px-3 py-2 text-base font-semibold transition-all ${
+                pathname === item.path ? "text-blue-600 bg-gray-100" : "text-gray-900 hover:bg-gray-50 hover:text-blue-600"
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
         </div>
       </div>
 
