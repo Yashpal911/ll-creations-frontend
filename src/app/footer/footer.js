@@ -1,7 +1,5 @@
 import { Col, Grid, Row } from "rsuite"
 
-
-
 const Footer = () => {
     return (
         <>
