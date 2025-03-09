@@ -180,3 +180,10 @@ animation: moveAnimation 2s infinite ;
     @apply bg-background text-foreground;
     }
 }
+
+.PhoneInputInput{
+    padding: 8px;
+}
+.PhoneInputCountry {
+    margin-left: 10px;
+}
