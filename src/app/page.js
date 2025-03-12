@@ -15,31 +15,40 @@ import { NumberTicker } from '@/components/magicui/number-ticker';
 const data = [
   {
     img: "/Images/img1.jpg",
+    heading: "POSTER DESIGN",
+    description:
+"    We create impactful posters that grab attention and deliver your message effectively. Whether for events, promotions, or branding, our designs are tailored to captivate your audience and leave a lasting impression. Stand out with posters that speak for you.",    joined: "January 2023",
+  },
+  {
+    img: "/Images/img1.jpg",
+    heading: "SOCIAL MEDIA POSTS",
+    description:
+      "Boost your online presence with eye-catching social media post designs. We create visuals that grab attention and engage your audience effectively.",
+    joined: "March 2022",
+  },
+  {
+    img: "/Images/img1.jpg",
     heading: "LOGO DESIGN",
     description:
-      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
-    joined: "January 2023",
+    "We craft unique and memorable logos that define your brand’s identity. Our designs combine creativity and strategy to ensure your logo stands out and leaves a lasting impression.",
   },
   {
     img: "/Images/img1.jpg",
-    heading: "POSTER DESIGN",
+    heading: "BUSINESS CARD DESIGN",
     description:
-      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
-    joined: "March 2022",
+      "Leave a lasting impression with sleek, professional business card designs that represent your brand with style.",
   },
   {
     img: "/Images/img1.jpg",
-    heading: "POSTER DESIGN",
+    heading: "VISITING CARDS",
     description:
-      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
-    joined: "March 2022",
+      "Make a strong first impression with professionally designed visiting cards. Sleek, stylish, and tailored to your brand, our designs leave a mark wherever you go.",
   },
   {
     img: "/Images/img1.jpg",
-    heading: "POSTER DESIGN",
+    heading: "PHOTO EDITING",
     description:
-      "We transform ideas into stunning logos that capture your brand’s essence. Stand out with a design that speaks for you.",
-    joined: "March 2022",
+      "Transform your photos with expert editing that enhances quality and style. From color correction to creative effects, we bring your images to life.",
   },
 ];
 
@@ -82,9 +91,9 @@ export default function Home() {
 
         <section className='p-24 flex justify-between'>
           <div className="w-1/2">
-            <h1>About Company Name</h1>
+            <h1>About LL-Creations</h1>
             <p className="aboutsubheading">
-              Welcome to my digital playground, where creativity meets functionality! As a UI/UX designer, I specialize in building visually compelling and user-friendly interfaces that enhance engagement and elevate brands. With a deep understanding of user psychology, wireframing, and prototyping, I transform ideas into pixel-perfect designs.
+              We specialize in creative design services, offering unique logos, engaging intro videos, professional cards, posters, and social media promotions. Our expertise extends to crafting customized marriage cards, letterheads, and festival offer designs that suit your style and purpose. Whether you're building a brand, promoting a business, or celebrating special moments, we deliver impactful visuals that leave a lasting impression.
             </p>
             <button
               className="mt-5 relative flex items-center gap-2 font-semibold text-[20px] text-gray-900 transition-all hover:text-red-500 group"
@@ -161,12 +170,12 @@ export default function Home() {
                       <img src={data.img} className='serviceImg' />
                     </div>
                     <h5 className='mt-6 px-3 serviceHeading font-extrabold'>{data.heading}</h5>
-                    <p className='text-gray-400 mt-4 px-3 text-base line-clamp-4'>
+                    <p className='text-gray-400 mt-4 px-3 text-base line-clamp-3'>
                       {data.description}
                     </p>
                   </Card.Body>
                   <Card.Footer>
-                    <a className="px-3 text-end cursor-pointer">Read More</a>
+                    <a className="px-3 cursor-pointer ">Read More</a>
                   </Card.Footer>
                 </Card>
               </SwiperSlide>
@@ -178,7 +187,27 @@ export default function Home() {
         <section className='px-24 py-10 flex justify-evenly'>
 
           <div className='flex flex-col items-center justify-center group'>
-            <p className='text-3xl font-bold'>Customers</p>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
+              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+            </div>
+            <p className='text-3xl font-bold mb-3'>Finished Projects</p>
+            <NumberTicker
+              value={1234}
+              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
+            />
+          </div>
+          <div className='flex flex-col items-center justify-center group'>
+            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
+              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+            </div>
+            <p className='text-3xl font-bold mb-3'>Satisfied Clients</p>
+            <NumberTicker
+              value={1234}
+              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
+            />
+          </div>
+          {/* <div className='flex flex-col items-center justify-center group'>
+            <p className='text-3xl font-bold'>Positive Reviews </p>
             <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
               <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
             </div>
@@ -186,32 +215,12 @@ export default function Home() {
               value={1234}
               className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
             />
-          </div>
+          </div> */}
           <div className='flex flex-col items-center justify-center group'>
-            <p className='text-3xl font-bold'>Customers</p>
             <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
               <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
             </div>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
-          </div>
-          <div className='flex flex-col items-center justify-center group'>
-            <p className='text-3xl font-bold'>Customers</p>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-            </div>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
-          </div>
-          <div className='flex flex-col items-center justify-center group'>
-            <p className='text-3xl font-bold'>Customers</p>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-            </div>
+            <p className='text-3xl font-bold mb-3'>Trusted Feedback</p>
             <NumberTicker
               value={1234}
               className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"

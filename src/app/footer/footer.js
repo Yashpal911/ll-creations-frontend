@@ -9,7 +9,7 @@ const Footer = () => {
                         <Col lg={2}></Col>
                         <Col lg={12} className="text-start">
                             <h1>LOGO</h1>
-                            <p className="text-lg mb-3">Description Linasdausdadnhaugfbsjugausdhasuid<br/> asdasdddddsdasdas</p>
+                            <p className="text-base mb-4">Empowering your brand with creative designs<br/>  from logos to social media promotions, <br/> we bring your vision to life!</p>
                             <div className="flex gap-2">
                                 <span>
                                 <svg  xmlns="http://www.w3.org/2000/svg"  width="40"  height="40"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"    className="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
@@ -45,7 +45,7 @@ const Footer = () => {
                     </Row>
                 </Grid>
                <div className="text-center py-4">
-                <p className="text-base">&copy; 2025. Company Name. All rights reserved.</p>
+                <p className="text-base">&copy; 2025. LL Creations. All rights reserved.</p>
                </div>
             </footer>
         </>

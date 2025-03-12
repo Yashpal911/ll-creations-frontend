@@ -187,3 +187,18 @@ animation: moveAnimation 2s infinite ;
 .PhoneInputCountry {
     margin-left: 10px;
 }
+
+.contactliIcon{
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 0.6s forwards;
+    
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
