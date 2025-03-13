@@ -251,7 +251,7 @@ export default function About() {
                 </section>
 
                 {/* Team Section */}
-                <section className="py-16 px-4 relative overflow-hidden">
+                {/* <section className="py-16 px-4 relative overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-gray-50/50"></div>
                     <div className="max-w-6xl mx-auto relative z-10">
                         <h2 className="text-4xl font-bold mb-8 text-black text-center relative inline-block">
@@ -262,7 +262,7 @@ export default function About() {
                             Behind LL Creations is a team of passionate artisans who love what they do, combining traditional craftsmanship with modern design.
                         </p>
 
-                        {/* <div className="grid md:grid-cols-3 gap-10">
+                        <div className="grid md:grid-cols-3 gap-10">
                             {teamMembers.map((member, index) => (
                                 <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 m-1 group relative">
                                     <div className={`h-64 relative bg-gradient-to-br ${member.accentColor}`}>
@@ -285,9 +285,9 @@ export default function About() {
                                     <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-gray-200"></div>
                                 </div>
                             ))}
-                        </div> */}
+                        </div>
                     </div>
-                </section>
+                </section> */}
             </main>
         </>
     );
