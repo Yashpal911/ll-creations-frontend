@@ -17,7 +17,7 @@ const data = [
     img: "/Images/img1.jpg",
     heading: "POSTER DESIGN",
     description:
-"    We create impactful posters that grab attention and deliver your message effectively. Whether for events, promotions, or branding, our designs are tailored to captivate your audience and leave a lasting impression. Stand out with posters that speak for you.",    joined: "January 2023",
+      "    We create impactful posters that grab attention and deliver your message effectively. Whether for events, promotions, or branding, our designs are tailored to captivate your audience and leave a lasting impression. Stand out with posters that speak for you.", joined: "January 2023",
   },
   {
     img: "/Images/img1.jpg",
@@ -30,7 +30,7 @@ const data = [
     img: "/Images/img1.jpg",
     heading: "LOGO DESIGN",
     description:
-    "We craft unique and memorable logos that define your brand’s identity. Our designs combine creativity and strategy to ensure your logo stands out and leaves a lasting impression.",
+      "We craft unique and memorable logos that define your brand's identity. Our designs combine creativity and strategy to ensure your logo stands out and leaves a lasting impression.",
   },
   {
     img: "/Images/img1.jpg",
@@ -52,46 +52,111 @@ const data = [
   },
 ];
 
+const clientLogos = [
+  { name: "Client 1", logo: "/Images/img1.jpg" },
+  { name: "Client 2", logo: "/Images/img1.jpg" },
+  { name: "Client 3", logo: "/Images/img1.jpg" },
+  { name: "Client 4", logo: "/Images/img1.jpg" },
+  { name: "Client 5", logo: "/Images/img1.jpg" },
+];
+
 export default function Home() {
   let swiperInstance = null;
 
   return (
     <>
       <div>
-        <Swiper
-          spaceBetween={0}
-          centeredSlides={true}
-          effect={'fade'}
-          loop={true}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
-          scrollbar={{
-            hide: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Scrollbar, Navigation]}
-          className="mySwiper h-[85vh]"
-        >
-          <SwiperSlide>
-            <img src='/Images/img1.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/Images/img2.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/Images/img3.jpg' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/Images/img4.jpg' />
-          </SwiperSlide>
-        </Swiper>
-
+        {/* Improved Banner with Overlay Text and CTA Buttons */}
+        <div className="relative">
+          <Swiper
+            spaceBetween={0}
+            centeredSlides={true}
+            effect={'fade'}
+            loop={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            scrollbar={{
+              hide: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Scrollbar, Navigation]}
+            className="mySwiper h-[85vh]"
+          >
+            <SwiperSlide className="relative">
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+              <img src='/Images/img1.jpg' className="object-cover h-full w-full" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
+                <h1 className="text-5xl font-bold mb-4">Creative Design Solutions</h1>
+                <p className="text-xl mb-8">Transform your brand with our professional design services</p>
+                <div className="flex justify-center gap-4">
+                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
+                    Get Started
+                  </button>
+                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
+                    View Portfolio
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="relative">
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+              <img src='/Images/img2.jpg' className="object-cover h-full w-full" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
+                <h1 className="text-5xl font-bold mb-4">Stunning Visuals</h1>
+                <p className="text-xl mb-8">Elevate your brand with eye-catching graphics</p>
+                <div className="flex justify-center gap-4">
+                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
+                    Our Services
+                  </button>
+                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
+                    Contact Us
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="relative">
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+              <img src='/Images/img3.jpg' className="object-cover h-full w-full" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
+                <h1 className="text-5xl font-bold mb-4">Professional Design</h1>
+                <p className="text-xl mb-8">From logos to posters, we've got you covered</p>
+                <div className="flex justify-center gap-4">
+                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
+                    Free Consultation
+                  </button>
+                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
+                    See Testimonials
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide className="relative">
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
+              <img src='/Images/img4.jpg' className="object-cover h-full w-full" />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
+                <h1 className="text-5xl font-bold mb-4">Custom Solutions</h1>
+                <p className="text-xl mb-8">Tailored designs for your unique brand needs</p>
+                <div className="flex justify-center gap-4">
+                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
+                    Request a Quote
+                  </button>
+                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
 
         <section className='p-24 flex justify-between'>
           <div className="w-1/2">
-            <h1>About LL-Creations</h1>
+            <span className='relative inline-block'>
+              <h1>About LL-Creations</h1>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+            </span>
             <p className="aboutsubheading">
               We specialize in creative design services, offering unique logos, engaging intro videos, professional cards, posters, and social media promotions. Our expertise extends to crafting customized marriage cards, letterheads, and festival offer designs that suit your style and purpose. Whether you're building a brand, promoting a business, or celebrating special moments, we deliver impactful visuals that leave a lasting impression.
             </p>
@@ -112,7 +177,6 @@ export default function Home() {
                 stroke="currentColor"
               >
                 <path
-
                   d="M14 5l7 7m0 0l-7 7m7-7H3"
                 ></path>
               </svg>
@@ -128,14 +192,17 @@ export default function Home() {
             <span className='absolute -top-10 p-3 right-0 bg-gray-200 rounded-xl shadow-lg moveAnimation'>
               <Image src="/Images/about-bg.jpg" width={150} height={150} alt='img' className='rounded-xl' />
             </span>
-
           </div>
         </section>
 
-
-        <section className='p-5 bg-[#f1f1f1] serviceSection'>
-          <h1 className='text-center mb-4'>Our Services</h1>
-
+        {/* Services Section (removed hover effects and View All button) */}
+        <section className='p-5 pt-14 bg-[#f1f1f1] serviceSection'>
+          <div className='ms-20 mb-14'>
+          <span className='relative inline-block'>
+          <h1>Our Services</h1>
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+          </span>
+          </div>
           <Swiper
             slidesPerView={3}
             spaceBetween={30}
@@ -147,7 +214,7 @@ export default function Home() {
               disableOnInteraction: false,
             }}
             modules={[Autoplay]}
-            className="mySwiper w-4/5"
+            className="mySwiper w-5/6"
             onSwiper={(swiper) => {
               swiperInstance = swiper;
             }}
@@ -175,7 +242,7 @@ export default function Home() {
                     </p>
                   </Card.Body>
                   <Card.Footer>
-                    <a className="px-3 cursor-pointer ">Read More</a>
+                    <a className="px-3 cursor-pointer">Read More</a>
                   </Card.Footer>
                 </Card>
               </SwiperSlide>
@@ -183,51 +250,71 @@ export default function Home() {
           </Swiper>
         </section>
 
-        {/* Clients */}
-        <section className='px-24 py-10 flex justify-evenly'>
-
-          <div className='flex flex-col items-center justify-center group'>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-            </div>
-            <p className='text-3xl font-bold mb-3'>Finished Projects</p>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
+        {/* Improved Statistics Section */}
+        <section className='py-16 px-24 bg-gradient-to-r from-gray-100 to-white'>
+          <div className='text-center mb-14'>
+            <span className='relative inline-block'>
+              <h1>Our Impact</h1>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+            </span>
           </div>
-          <div className='flex flex-col items-center justify-center group'>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+          <div className='flex justify-evenly'>
+            <div className='flex flex-col items-center justify-center group'>
+              <div className='h-32 w-32 bg-gradient-to-br from-red-400 to-red-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
+                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+              </div>
+              <p className='text-3xl font-bold mb-3'>Finished Projects</p>
+              <NumberTicker
+                value={1234}
+                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
+              />
             </div>
-            <p className='text-3xl font-bold mb-3'>Satisfied Clients</p>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
+            <div className='flex flex-col items-center justify-center group'>
+              <div className='h-32 w-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
+                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+              </div>
+              <p className='text-3xl font-bold mb-3'>Satisfied Clients</p>
+              <NumberTicker
+                value={1234}
+                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
+              />
+            </div>
+            <div className='flex flex-col items-center justify-center group'>
+              <div className='h-32 w-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
+                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
+              </div>
+              <p className='text-3xl font-bold mb-3'>Trusted Feedback</p>
+              <NumberTicker
+                value={1234}
+                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
+              />
+            </div>
           </div>
-          {/* <div className='flex flex-col items-center justify-center group'>
-            <p className='text-3xl font-bold'>Positive Reviews </p>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-            </div>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
-          </div> */}
-          <div className='flex flex-col items-center justify-center group'>
-            <div className='h-32 w-32 bg-gray-400 rounded-full my-3 flex justify-center items-center '>
-              <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-            </div>
-            <p className='text-3xl font-bold mb-3'>Trusted Feedback</p>
-            <NumberTicker
-              value={1234}
-              className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-            />
-          </div>
-
         </section>
+
+        {/* Client Logos Section */}
+        {/* <section className='py-16 px-24'>
+          <h1 className='text-center mb-12'>Our Clients</h1>
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={30}
+            loop={true}
+            autoplay={{
+              delay: 1500,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper"
+          >
+            {clientLogos.map((client, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex justify-center items-center h-32 p-4 bg-white rounded-lg shadow-md">
+                  <img src={client.logo} alt={client.name} className="max-h-24 object-contain" />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section> */}
       </div>
     </>
   );
