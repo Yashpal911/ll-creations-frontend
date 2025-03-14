@@ -207,107 +207,97 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (event) => {
-    // Prevent default form submission if event is provided
-    if (event) {
-      event.preventDefault();
-    }
-    
-    // Validate form first
+const handleSubmit = async (event) => {
+    if (event) event.preventDefault();
+
     if (!validateForm()) return;
-    
+
     setLoading(true);
-    
+
     try {
-      // Create form data from current state
-      const formObject = { 
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.mail,
-        phone: formData.phone,
-        message: formData.message,
-        access_key: process.env.NEXT_PUBLIC_ACCESS_KEY
-      };
-      
-      // Convert to JSON
-      const json = JSON.stringify(formObject);
-      
-      // Send to Web3Forms API
-      let response;
-      try {
-        response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-        });
+        // Custom Subject Line
+        const customSubject = `New Design Inquiry`;
+
         
-        if (!response.ok) {
-          throw new Error(`Network response error: ${response.status}`);
+         const formObject = { 
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.mail,
+            phone: formData.phone,
+            message: formData.message,
+            subject: customSubject,  // Custom Subject Line
+            from_name: "LL Creations",  // Custom Sender Name
+            access_key: process.env.NEXT_PUBLIC_ACCESS_KEY
+        };
+
+        
+        const json = JSON.stringify(formObject);
+
+        let response;
+        try {
+            response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
+            });
+
+            if (!response.ok) {
+                throw new Error(`Network response error: ${response.status}`);
+            }
+        } catch (fetchError) {
+            toaster.push(
+                <Notification type="error" header="Error" closable>
+                    Failed to connect to submission service. Please check your internet connection.
+                </Notification>
+            );
+            console.error("Network error:", fetchError);
+            return;
         }
-      } catch (fetchError) {
-        // This specifically catches network errors or failed requests
-        toaster.push(
-          <Notification type="error" header="Error" closable>
-            Failed to connect to submission service. Please check your internet connection.
-          </Notification>
-        );
-        console.error("Network error:", fetchError);
-        return; // Exit early
-      }
-      
-      // Parse the response
-      const result = await response.json();
-      
-      // Check the actual result from the API
-      if (result && result.success) {
-        console.log("Form submission successful:", result);
-        
-        // Show success notification
-        toaster.push(
-          <Notification type="success" header="Success" closable>
-            Your message has been sent successfully. We'll get back to you soon!
-          </Notification>
-        );
-        
-        // Set submitted state to show thank you message
-        setSubmitted(true);
-        
-        // Reset form
-        setFormData({
-          firstName: "",
-          lastName: "",
-          mail: "",
-          phone: "",
-          message: "",
-        });
-      } else {
-        // This explicitly handles the case where the API returned a response
-        // but the success flag was false
-        toaster.push(
-          <Notification type="error" header="Error" closable>
-            Failed to send your message. Please try again later.
-          </Notification>
-        );
-        console.error("Web3Forms submission failed:", result);
-        // Don't set submitted to true here!
-      }
+
+        const result = await response.json();
+
+        if (result && result.success) {
+            console.log("Form submission successful:", result);
+
+            toaster.push(
+                <Notification type="success" header="Success" closable>
+                    Your message has been sent successfully. We'll get back to you soon!
+                </Notification>
+            );
+
+            setSubmitted(true);
+
+            setFormData({
+                firstName: "",
+                lastName: "",
+                mail: "",
+                phone: "",
+                message: "",
+            });
+        } else {
+            toaster.push(
+                <Notification type="error" header="Error" closable>
+                    Failed to send your message. Please try again later.
+                </Notification>
+            );
+            console.error("Web3Forms submission failed:", result);
+        }
     } catch (error) {
-      console.error("Form submission error:", error);
-      
-      // Show error notification
-      toaster.push(
-        <Notification type="error" header="Error" closable>
-          Failed to send message. Please try again later.
-        </Notification>
-      );
-      // Don't set submitted to true here either!
+        console.error("Form submission error:", error);
+
+        toaster.push(
+            <Notification type="error" header="Error" closable>
+                Failed to send message. Please try again later.
+            </Notification>
+        );
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
+
 
   return (
     <div className="px-4 md:px-16 lg:px-44 bg-gradient-to-b from-white to-blue-50">
