@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Col, Form, Input, Row, Notification, toaster } from "rsuite";
 import "react-phone-number-input/style.css";
 import { TextAnimate } from "../../../src/components/magicui/text-animate";
@@ -43,6 +43,17 @@ const ClientPhoneInput = ({ value, onChange, ...props }) => {
 
 const Textarea = React.forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
 
+// Create a stable animated component that won't re-render
+const StableTextAnimate = React.memo(({ children, ...props }) => {
+  return (
+    <TextAnimate animation="blurInUp" by="character" once {...props}>
+      {children}
+    </TextAnimate>
+  );
+});
+
+StableTextAnimate.displayName = "StableTextAnimate";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -54,8 +65,119 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  
+  // Render contact information section only once
+  const contactInfoSection = useRef(
+    <div className="flex flex-col gap-5 mt-8">
+      <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
+        <span className="p-3 bg-blue-100 rounded-full text-blue-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+            <path d="M3 7l9 6l9 -6" />
+          </svg>
+        </span>
+        <span className="font-bold text-lg text-gray-800">
+          <StableTextAnimate>
+            Email us for quick queries
+          </StableTextAnimate>
+        </span>
+      </div>
+
+      <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
+        <span className="p-3 bg-indigo-100 rounded-full text-indigo-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
+            <path d="M12 16v.01" />
+            <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
+          </svg>
+        </span>
+        <span className="font-bold text-lg text-gray-800">
+          <StableTextAnimate>
+            Ask about custom design solution
+          </StableTextAnimate>
+        </span>
+      </div>
+
+      <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
+        <span className="p-3 bg-purple-100 rounded-full text-purple-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 10h10" />
+            <path d="M9 14h5" />
+            <path d="M12.4 3a5.34 5.34 0 0 1 4.906 3.239a5.333 5.333 0 0 1 -1.195 10.6a4.26 4.26 0 0 1 -5.28 1.863l-3.831 2.298v-3.134a2.668 2.668 0 0 1 -1.795 -3.773a4.8 4.8 0 0 1 2.908 -8.933a5.33 5.33 0 0 1 4.287 -2.16" />
+          </svg>
+        </span>
+        <span className="font-bold text-lg text-gray-800">
+          <StableTextAnimate>
+            Request a logo design consultation
+          </StableTextAnimate>
+        </span>
+      </div>
+
+      <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
+        <span className="p-3 bg-green-100 rounded-full text-green-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
+            <path d="M9 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+            <path d="M15 8l2 0" />
+            <path d="M15 12l2 0" />
+            <path d="M7 16l10 0" />
+          </svg>
+        </span>
+        <span className="font-bold text-lg text-gray-800">
+          <StableTextAnimate>
+            Ask about social media post designs
+          </StableTextAnimate>
+        </span>
+      </div>
+    </div>
+  ).current;
 
   const handleChange = (value, fieldName) => {
+    if (!hasInteracted) {
+      setHasInteracted(true);
+    }
+    
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: value,
@@ -78,45 +200,110 @@ const Contact = () => {
     } else if (!/^\S+@\S+\.\S+$/.test(formData.mail)) {
       newErrors.mail = "Email is invalid";
     }
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.phone) newErrors.phone = "Phone number is required";
+    // Message is now optional, so no validation for it
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
+    // Prevent default form submission if event is provided
+    if (event) {
+      event.preventDefault();
+    }
+    
+    // Validate form first
     if (!validateForm()) return;
-
+    
     setLoading(true);
-
+    
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      // Success notification
-      toaster.push(
-        <Notification type="success" header="Success" closable>
-          Your message has been sent successfully. We'll get back to you soon!
-        </Notification>
-      );
-
-      // Set submitted state to show thank you message
-      setSubmitted(true);
-
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        mail: "",
-        phone: "",
-        message: "",
-      });
+      // Create form data from current state
+      const formObject = { 
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.mail,
+        phone: formData.phone,
+        message: formData.message,
+        access_key: process.env.NEXT_PUBLIC_ACCESS_KEY
+      };
+      
+      // Convert to JSON
+      const json = JSON.stringify(formObject);
+      
+      // Send to Web3Forms API
+      let response;
+      try {
+        response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: json
+        });
+        
+        if (!response.ok) {
+          throw new Error(`Network response error: ${response.status}`);
+        }
+      } catch (fetchError) {
+        // This specifically catches network errors or failed requests
+        toaster.push(
+          <Notification type="error" header="Error" closable>
+            Failed to connect to submission service. Please check your internet connection.
+          </Notification>
+        );
+        console.error("Network error:", fetchError);
+        return; // Exit early
+      }
+      
+      // Parse the response
+      const result = await response.json();
+      
+      // Check the actual result from the API
+      if (result && result.success) {
+        console.log("Form submission successful:", result);
+        
+        // Show success notification
+        toaster.push(
+          <Notification type="success" header="Success" closable>
+            Your message has been sent successfully. We'll get back to you soon!
+          </Notification>
+        );
+        
+        // Set submitted state to show thank you message
+        setSubmitted(true);
+        
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          mail: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        // This explicitly handles the case where the API returned a response
+        // but the success flag was false
+        toaster.push(
+          <Notification type="error" header="Error" closable>
+            Failed to send your message. Please try again later.
+          </Notification>
+        );
+        console.error("Web3Forms submission failed:", result);
+        // Don't set submitted to true here!
+      }
     } catch (error) {
+      console.error("Form submission error:", error);
+      
+      // Show error notification
       toaster.push(
         <Notification type="error" header="Error" closable>
           Failed to send message. Please try again later.
         </Notification>
       );
+      // Don't set submitted to true here either!
     } finally {
       setLoading(false);
     }
@@ -133,108 +320,7 @@ const Contact = () => {
                 Got a project in mind or just curious about our services? Reach out — we're here to help!
               </p>
 
-              <div className="flex flex-col gap-5 mt-8">
-                <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
-                  <span className="p-3 bg-blue-100 rounded-full text-blue-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
-                      <path d="M3 7l9 6l9 -6" />
-                    </svg>
-                  </span>
-                  <span className="font-bold text-lg text-gray-800">
-                    <TextAnimate animation="blurInUp" by="character" once>
-                      Email us for quick queries
-                    </TextAnimate>
-                  </span>
-                </div>
-
-                <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
-                  <span className="p-3 bg-indigo-100 rounded-full text-indigo-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M19.875 6.27c.7 .398 1.13 1.143 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                      <path d="M12 16v.01" />
-                      <path d="M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" />
-                    </svg>
-                  </span>
-                  <span className="font-bold text-lg text-gray-800">
-                    <TextAnimate animation="blurInUp" by="character" once>
-                      Ask about custom design solution
-                    </TextAnimate>
-                  </span>
-                </div>
-
-                <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
-                  <span className="p-3 bg-purple-100 rounded-full text-purple-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M7 10h10" />
-                      <path d="M9 14h5" />
-                      <path d="M12.4 3a5.34 5.34 0 0 1 4.906 3.239a5.333 5.333 0 0 1 -1.195 10.6a4.26 4.26 0 0 1 -5.28 1.863l-3.831 2.298v-3.134a2.668 2.668 0 0 1 -1.795 -3.773a4.8 4.8 0 0 1 2.908 -8.933a5.33 5.33 0 0 1 4.287 -2.16" />
-                    </svg>
-                  </span>
-                  <span className="font-bold text-lg text-gray-800">
-                    <TextAnimate animation="blurInUp" by="character" once>
-                      Request a logo design consultation
-                    </TextAnimate>
-                  </span>
-                </div>
-
-                <div className="flex gap-4 items-center group transition-all duration-300 hover:translate-x-2">
-                  <span className="p-3 bg-green-100 rounded-full text-green-600">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-                      <path d="M9 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                      <path d="M15 8l2 0" />
-                      <path d="M15 12l2 0" />
-                      <path d="M7 16l10 0" />
-                    </svg>
-                  </span>
-                  <span className="font-bold text-lg text-gray-800">
-                    <TextAnimate animation="blurInUp" by="character" once>
-                      Ask about social media post designs
-                    </TextAnimate>
-                  </span>
-                </div>
-              </div>
+              {contactInfoSection}
             </div>
           </Col>
 
@@ -293,12 +379,14 @@ const Contact = () => {
                     <Row className="mb-4">
                       <Col xs={24}>
                         <Form.Group>
-                          <Form.ControlLabel>Phone Number</Form.ControlLabel>
+                          <Form.ControlLabel>Phone Number *</Form.ControlLabel>
                           <ClientPhoneInput
                             placeholder="Enter phone number"
                             value={formData.phone}
                             onChange={(value) => handleChange(value, "phone")}
+                            className=  "border border-gray-300 rounded-lg"
                           />
+                          {errors.phone && <div className="text-red-500 mt-1 text-sm">{errors.phone}</div>}
                         </Form.Group>
                       </Col>
                     </Row>
@@ -306,7 +394,7 @@ const Contact = () => {
                     <Row className="mb-6">
                       <Col xs={24}>
                         <Form.Group controlId="textarea-1">
-                          <Form.ControlLabel>Message *</Form.ControlLabel>
+                          <Form.ControlLabel>Message</Form.ControlLabel>
                           <Form.Control
                             rows={5}
                             name="message"
@@ -314,9 +402,7 @@ const Contact = () => {
                             onChange={(value) => handleChange(value, "message")}
                             accepter={Textarea}
                             placeholder="Write your message here..."
-                            className={errors.message ? "border-red-500" : ""}
                           />
-                          {errors.message && <div className="text-red-500 mt-1 text-sm">{errors.message}</div>}
                         </Form.Group>
                       </Col>
                     </Row>
@@ -385,7 +471,10 @@ const Contact = () => {
                     Your message has been sent successfully. We'll get back to you as soon as possible.
                   </p>
                   <button
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false);
+                      setHasInteracted(false);
+                    }}
                     className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     Send Another Message
