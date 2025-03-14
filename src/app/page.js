@@ -198,10 +198,10 @@ export default function Home() {
         {/* Services Section (removed hover effects and View All button) */}
         <section className='p-5 pt-14 bg-[#f1f1f1] serviceSection'>
           <div className='ms-20 mb-14'>
-          <span className='relative inline-block'>
-          <h1>Our Services</h1>
-            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
-          </span>
+            <span className='relative inline-block'>
+              <h1>Our Services</h1>
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+            </span>
           </div>
           <Swiper
             slidesPerView={3}
@@ -242,7 +242,7 @@ export default function Home() {
                     </p>
                   </Card.Body>
                   <Card.Footer>
-                    <a className="px-3 cursor-pointer">Read More</a>
+                    <a className="px-3 cursor-pointer" href='/logoDisplay'>Read More</a>
                   </Card.Footer>
                 </Card>
               </SwiperSlide>
@@ -250,8 +250,34 @@ export default function Home() {
           </Swiper>
         </section>
 
+        {/* Portfolio Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-28 my-20">
+          {[
+            { number: "120", label: "Projects Completed", suffix: "+" },
+            { number: "98", label: "Client Satisfaction", suffix: "%" },
+            { number: "15", label: "Years Experience", suffix: "+" },
+            { number: "40", label: "Brands Worked With", suffix: "+" }
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl custom-shadow p-6 text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px] hover:bg-gradient-to-b hover:from-white hover:to-blue-50 cursor-pointer"
+            >
+              <div className="transform transition-transform duration-300 hover:scale-105">
+                <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                  <NumberTicker
+                    value={stat.number}
+                    className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+                  />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">{stat.suffix}</span>
+                </h3>
+                <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover:text-blue-700">{stat.label}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
         {/* Improved Statistics Section */}
-        <section className='py-16 px-24 bg-gradient-to-r from-gray-100 to-white'>
+        {/* <section className='py-16 px-24 bg-gradient-to-r from-gray-100 to-white'>
           <div className='text-center mb-14'>
             <span className='relative inline-block'>
               <h1>Our Impact</h1>
@@ -290,7 +316,8 @@ export default function Home() {
               />
             </div>
           </div>
-        </section>
+        </section> */}
+
 
         {/* Client Logos Section */}
         {/* <section className='py-16 px-24'>
