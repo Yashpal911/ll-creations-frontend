@@ -2,14 +2,13 @@
 
 // pages/about.js
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import required modules and CSS
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/effect-cards';
-import { Pagination, Autoplay, EffectCards } from 'swiper/modules';
+import 'swiper/css/pagination';
+import { Autoplay, EffectCards } from 'swiper/modules';
 
 export default function About() {
     // Data for offer cards
@@ -55,15 +54,15 @@ export default function About() {
     // Data for why choose us section
     const chooseUsItems = [
         {
-            title: "Creative Expertise",
-            description: "Our team blends artistic vision with precision craftsmanship.",
+            title: " Creative Brilliance",
+            description: "Our designs are crafted with passion and precision, ensuring every project stands out.",
             icon: "🎨",
             color: "border-l-purple-400"
         },
         {
             title: "Personalized Consultation",
             description: "We collaborate closely to deliver tailored designs.",
-            icon: "💬",
+            icon: "🤝",
             color: "border-l-blue-400"
         },
         {
@@ -73,9 +72,9 @@ export default function About() {
             color: "border-l-blue-400"
         },
         {
-            title: "Eco-Friendly Materials",
-            description: "Using environmentally conscious materials and processes.",
-            icon: "🌱",
+            title: "Dedicated Support",
+            description: "We guide you through every step, ensuring your design journey is smooth and satisfying.",
+            icon: "📞 ",
             color: "border-l-green-400"
         },
         {
@@ -85,9 +84,9 @@ export default function About() {
             color: "border-l-indigo-400"
         },
         {
-            title: "Unmatched Support",
-            description: "Guiding you from concept to completion.",
-            icon: "🤝",
+            title: "Easy Communication",
+            description: "Get in touch quickly through our streamlined contact forms and inquiry system.",
+            icon: "💬",
             color: "border-l-purple-400"
         }
     ];
@@ -144,12 +143,12 @@ export default function About() {
                 {/* Our Story Section */}
                 <section className="py-16 px-4 relative">
                     <div className="max-w-6xl mx-auto">
+                        <div className="grid md:grid-cols-2 gap-12 items-center">
+                            <div className="relative z-10">
                         <h2 className="text-4xl font-bold mb-8 text-black relative inline-block">
                             Our Story
                             <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
                         </h2>
-                        <div className="grid md:grid-cols-2 gap-12 items-center">
-                            <div className="relative z-10">
                                 <div className="absolute -z-10 w-32 h-32 bg-blue-200 rounded-full blur-xl opacity-30 -top-10 -left-10"></div>
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                                     What started as a small idea soon became a journey fueled by creativity and passion. <br />

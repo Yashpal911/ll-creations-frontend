@@ -1,7 +1,7 @@
-import Header from "./header/header";
-import "./globals.css";
-import 'rsuite/dist/rsuite.min.css'
+import 'rsuite/dist/rsuite.min.css';
 import Footer from "./footer/footer";
+import "./globals.css";
+import Header from "./header/header";
 
 export const metadata = {
   title: "LL Creations",

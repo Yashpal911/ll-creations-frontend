@@ -1,14 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay, EffectCoverflow, Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/navigation';
 import { NumberTicker } from "@/components/magicui/number-ticker";
 import Link from "next/link";
+import { useRef, useState } from "react";
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Autoplay, EffectCoverflow, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Work = () => {
   const [activeCategory, setActiveCategory] = useState(0);

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import { Col, Form, Input, Row, Notification, toaster } from "rsuite";
+import React, { useRef, useState } from "react";
 import "react-phone-number-input/style.css";
+import { Col, Form, Input, Notification, Row, toaster } from "rsuite";
 import { TextAnimate } from "../../../src/components/magicui/text-animate";
 
 // Create a PhoneInput component that properly handles client-side rendering
