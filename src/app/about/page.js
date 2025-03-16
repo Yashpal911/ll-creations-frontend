@@ -167,18 +167,23 @@ export default function About() {
                                     </strong>
                                 </p>
                             </div>
-                            <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
-                                <div className="bg-gray-200 w-full h-full min-h-64 relative">
-                                    {/* Replace with actual image */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                                        Workshop Image
-                                    </div>
-                                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
-                                    <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-300 rounded-full opacity-30 blur-xl"></div>
-                                </div>
-                                <div className="absolute -bottom-2 -left-2 w-24 h-24 border-4 border-purple-300"></div>
-                                <div className="absolute -top-2 -right-2 w-24 h-24 border-4 border-blue-300"></div>
-                            </div>
+                         <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
+                                        <div className="bg-gray-200 w-full h-full min-h-64 relative">
+                                          <Image
+                                            src="/Images/about-bg.jpg"
+                                            width={500}
+                                            height={500}
+                                            alt='img'
+                                            className='rounded-3xl w-full h-full object-cover'
+                                          />
+                        
+                                          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
+                                          <div className="absolute -bottom-6 -right-6 w-[20%] h-[20%] bg-blue-300 rounded-full opacity-30 blur-xl"></div>
+                                        </div>
+                        
+                                        <div className="absolute -bottom-2 -left-2 w-[15%] h-[15%] border-4 border-purple-300"></div>
+                                        <div className="absolute -top-2 -right-2 w-[15%] h-[15%] border-4 border-blue-300"></div>
+                                      </div>
                         </div>
                     </div>
                 </section>

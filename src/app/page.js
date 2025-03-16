@@ -80,10 +80,9 @@ export default function Home() {
           <Swiper
             spaceBetween={0}
             centeredSlides={true}
-            effect={'fade'}
             loop={true}
             autoplay={{
-              delay: 5000,
+              delay: 4000,
               disableOnInteraction: false,
             }}
             scrollbar={{
@@ -95,52 +94,66 @@ export default function Home() {
           >
             {BannerImages.map((src, index) => (
               <SwiperSlide key={index} className="relative">
-                <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
                 <img src={src} className="object-cover h-full w-full" alt={`Slide ${index + 1}`} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        <section className='p-24 flex justify-between'>
-          <div className="w-1/2">
-            <span className='relative inline-block'>
-              <h1>About LL-Creations</h1>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
-            </span>
-            <p className="aboutsubheading">
-              We specialize in creative design services, offering unique logos, engaging intro videos, professional cards, posters, and social media promotions. Our expertise extends to crafting customized marriage cards, letterheads, and festival offer designs that suit your style and purpose. Whether you're building a brand, promoting a business, or celebrating special moments, we deliver impactful visuals that leave a lasting impression.
-            </p>
-            <Link href="/about" className='hover:no-underline' > 
-            <button
-              className="mt-5 relative flex items-center gap-2 font-semibold text-[20px] text-black transition-all group group-hover:font-bold"
-              >
-              <p className="relative group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 group-hover:bg-clip-text group-hover:text-transparent">
-                More about us
-              </p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-black transition-all duration-300 group-hover:text-blue-400 group-hover:scale-125"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                >
-                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-              </svg>
-              <span
-                className="absolute bottom-[-7px] left-0 h-[2px] w-0 bg-gradient-to-r from-purple-400 to-blue-400 transition-all group-hover:w-full"
-                ></span>
-            </button>
-                </Link>
 
-          </div>
-          <div className='w-2/5 relative'>
-            <span>
-              <Image src="/Images/about-bg.jpg" width={500} height={500} alt='img' className='rounded-3xl' />
-            </span>
-            <span className='absolute -top-10 p-3 right-0 bg-gray-200 rounded-xl shadow-lg moveAnimation'>
-              <Image src="/Images/about-bg.jpg" width={150} height={150} alt='img' className='rounded-xl' />
-            </span>
+        <section className="py-16 px-4 relative">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-8 text-black relative inline-block">
+              About LL-Creations
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative z-10">
+                <div className="absolute -z-10 w-32 h-32 bg-blue-200 rounded-full blur-xl opacity-30 -top-10 -left-10"></div>
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  We specialize in creative design services, offering unique logos, engaging intro videos, professional cards, posters, and social media promotions. Our expertise extends to crafting customized marriage cards, letterheads, and festival offer designs that suit your style and purpose. Whether you're building a brand, promoting a business, or celebrating special moments, we deliver impactful visuals that leave a lasting impression.
+                  <Link href="/about" className='hover:no-underline' >
+                    <button
+                      className="mt-5 relative flex items-center gap-2 font-semibold text-[20px] text-black transition-all group group-hover:font-bold"
+                    >
+                      <p className="relative group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 group-hover:bg-clip-text group-hover:text-transparent">
+                        More about us
+                      </p>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-black transition-all duration-300 group-hover:text-blue-400 group-hover:scale-125"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                      </svg>
+                      <span
+                        className="absolute bottom-[-7px] left-0 h-[2px] w-0 bg-gradient-to-r from-purple-400 to-blue-400 transition-all group-hover:w-full"
+                      ></span>
+                    </button>
+                  </Link>
+                </p>
+              </div>
+              <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
+                <div className="bg-gray-200 w-full h-full min-h-64 relative">
+                  <Image
+                    src="/Images/about-bg.jpg"
+                    width={500}
+                    height={500}
+                    alt='img'
+                    className='rounded-3xl w-full h-full object-cover'
+                  />
+
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
+                  <div className="absolute -bottom-6 -right-6 w-[20%] h-[20%] bg-blue-300 rounded-full opacity-30 blur-xl"></div>
+                </div>
+
+                <div className="absolute -bottom-2 -left-2 w-[15%] h-[15%] border-4 border-purple-300"></div>
+                <div className="absolute -top-2 -right-2 w-[15%] h-[15%] border-4 border-blue-300"></div>
+              </div>
+
+            </div>
           </div>
         </section>
 
@@ -153,7 +166,6 @@ export default function Home() {
             </span>
           </div>
           <Swiper
-            slidesPerView={3}
             spaceBetween={30}
             centeredSlides={true}
             effect={"fade"}
@@ -176,6 +188,11 @@ export default function Home() {
               if (swiperInstance && swiperInstance.autoplay) {
                 swiperInstance.autoplay.start(); // Resume autoplay when mouse leaves
               }
+            }}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
             }}
           >
             {data.map((data, index) => (
@@ -200,97 +217,33 @@ export default function Home() {
         </section>
 
         {/* Portfolio Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mx-28 my-20">
-          {[
-            { number: "120", label: "Projects Completed", suffix: "+" },
-            { number: "98", label: "Client Satisfaction", suffix: "%" },
-            { number: "15", label: "Years Experience", suffix: "+" },
-            { number: "40", label: "Brands Worked With", suffix: "+" }
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl custom-shadow p-6 text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px] hover:bg-gradient-to-b hover:from-white hover:to-blue-50 cursor-pointer"
-            >
-              <div className="transform transition-transform duration-300 hover:scale-105">
-                <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
-                  <NumberTicker
-                    value={stat.number}
-                    className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
-                  />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">{stat.suffix}</span>
-                </h3>
-                <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover:text-blue-700">{stat.label}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className='px-5'>
 
-        {/* Improved Statistics Section */}
-        {/* <section className='py-16 px-24 bg-gradient-to-r from-gray-100 to-white'>
-          <div className='text-center mb-14'>
-            <span className='relative inline-block'>
-              <h1>Our Impact</h1>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
-            </span>
-          </div>
-          <div className='flex justify-evenly'>
-            <div className='flex flex-col items-center justify-center group'>
-              <div className='h-32 w-32 bg-gradient-to-br from-red-400 to-red-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
-                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-              </div>
-              <p className='text-3xl font-bold mb-3'>Finished Projects</p>
-              <NumberTicker
-                value={1234}
-                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-              />
-            </div>
-            <div className='flex flex-col items-center justify-center group'>
-              <div className='h-32 w-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
-                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-              </div>
-              <p className='text-3xl font-bold mb-3'>Satisfied Clients</p>
-              <NumberTicker
-                value={1234}
-                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-              />
-            </div>
-            <div className='flex flex-col items-center justify-center group'>
-              <div className='h-32 w-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full my-3 flex justify-center items-center shadow-lg transform transition-transform duration-500 group-hover:scale-110'>
-                <Image src={"/Icons/costumer.png"} alt='Customer' height={60} width={60} className='transition-transform duration-300 group-hover:scale-x-[-1]' />
-              </div>
-              <p className='text-3xl font-bold mb-3'>Trusted Feedback</p>
-              <NumberTicker
-                value={1234}
-                className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-black dark:text-white"
-              />
-            </div>
-          </div>
-        </section> */}
-
-
-        {/* Client Logos Section */}
-        {/* <section className='py-16 px-24'>
-          <h1 className='text-center mb-12'>Our Clients</h1>
-          <Swiper
-            slidesPerView={5}
-            spaceBetween={30}
-            loop={true}
-            autoplay={{
-              delay: 1500,
-              disableOnInteraction: false,
-            }}
-            modules={[Autoplay]}
-            className="mySwiper"
-          >
-            {clientLogos.map((client, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex justify-center items-center h-32 p-4 bg-white rounded-lg shadow-md">
-                  <img src={client.logo} alt={client.name} className="max-h-24 object-contain" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-16">
+            {[
+              { number: "120", label: "Projects Completed", suffix: "+" },
+              { number: "98", label: "Client Satisfaction", suffix: "%" },
+              { number: "15", label: "Years Experience", suffix: "+" },
+              { number: "40", label: "Brands Worked With", suffix: "+" }
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl custom-shadow p-6 text-center transition-all duration-300 hover:shadow-lg hover:translate-y-[-5px] hover:bg-gradient-to-b hover:from-white hover:to-blue-50 cursor-pointer"
+              >
+                <div className="transform transition-transform duration-300 hover:scale-105">
+                  <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                    <NumberTicker
+                      value={stat.number}
+                      className="whitespace-pre-wrap text-3xl font-bold tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600"
+                    />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">{stat.suffix}</span>
+                  </h3>
+                  <p className="text-gray-600 mt-2 transition-colors duration-300 group-hover:text-blue-700">{stat.label}</p>
                 </div>
-              </SwiperSlide>
+              </div>
             ))}
-          </Swiper>
-        </section> */}
+          </div>
+        </div>
       </div>
     </>
   );
