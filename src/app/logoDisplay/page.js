@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+
 const LogoDesignGallery = () => {
   // Sample logo designs data - Replace with your actual data
   const logoDesigns = [

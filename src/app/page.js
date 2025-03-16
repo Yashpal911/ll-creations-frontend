@@ -11,6 +11,8 @@ import { Autoplay, Pagination, Navigation, Scrollbar } from 'swiper/modules';
 import { Card } from 'rsuite';
 import Image from 'next/image';
 import { NumberTicker } from '@/components/magicui/number-ticker';
+import Link from 'next/link';
+
 
 const data = [
   {
@@ -60,6 +62,13 @@ const clientLogos = [
   { name: "Client 5", logo: "/Images/img1.jpg" },
 ];
 
+const BannerImages = [
+  '/Images/img1.jpg',
+  '/Images/img2.jpg',
+  '/Images/img3.jpg',
+  '/Images/img4.jpg'
+];
+
 export default function Home() {
   let swiperInstance = null;
 
@@ -84,70 +93,12 @@ export default function Home() {
             modules={[Autoplay, Scrollbar, Navigation]}
             className="mySwiper h-[85vh]"
           >
-            <SwiperSlide className="relative">
-              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-              <img src='/Images/img1.jpg' className="object-cover h-full w-full" />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
-                <h1 className="text-5xl font-bold mb-4">Creative Design Solutions</h1>
-                <p className="text-xl mb-8">Transform your brand with our professional design services</p>
-                <div className="flex justify-center gap-4">
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
-                    Get Started
-                  </button>
-                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
-                    View Portfolio
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="relative">
-              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-              <img src='/Images/img2.jpg' className="object-cover h-full w-full" />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
-                <h1 className="text-5xl font-bold mb-4">Stunning Visuals</h1>
-                <p className="text-xl mb-8">Elevate your brand with eye-catching graphics</p>
-                <div className="flex justify-center gap-4">
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
-                    Our Services
-                  </button>
-                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
-                    Contact Us
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="relative">
-              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-              <img src='/Images/img3.jpg' className="object-cover h-full w-full" />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
-                <h1 className="text-5xl font-bold mb-4">Professional Design</h1>
-                <p className="text-xl mb-8">From logos to posters, we've got you covered</p>
-                <div className="flex justify-center gap-4">
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
-                    Free Consultation
-                  </button>
-                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
-                    See Testimonials
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="relative">
-              <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
-              <img src='/Images/img4.jpg' className="object-cover h-full w-full" />
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-20 w-full max-w-4xl px-4">
-                <h1 className="text-5xl font-bold mb-4">Custom Solutions</h1>
-                <p className="text-xl mb-8">Tailored designs for your unique brand needs</p>
-                <div className="flex justify-center gap-4">
-                  <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition-all">
-                    Request a Quote
-                  </button>
-                  <button className="border-2 border-white hover:bg-white hover:text-black text-white px-6 py-3 rounded-md transition-all">
-                    Learn More
-                  </button>
-                </div>
-              </div>
-            </SwiperSlide>
+            {BannerImages.map((src, index) => (
+              <SwiperSlide key={index} className="relative">
+                <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+                <img src={src} className="object-cover h-full w-full" alt={`Slide ${index + 1}`} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
 
@@ -160,30 +111,28 @@ export default function Home() {
             <p className="aboutsubheading">
               We specialize in creative design services, offering unique logos, engaging intro videos, professional cards, posters, and social media promotions. Our expertise extends to crafting customized marriage cards, letterheads, and festival offer designs that suit your style and purpose. Whether you're building a brand, promoting a business, or celebrating special moments, we deliver impactful visuals that leave a lasting impression.
             </p>
+            <Link href="/about" className='hover:no-underline' > 
             <button
-              className="mt-5 relative flex items-center gap-2 font-semibold text-[20px] text-gray-900 transition-all hover:text-red-500 group"
-            >
-              <p className="relative">
+              className="mt-5 relative flex items-center gap-2 font-semibold text-[20px] text-black transition-all group group-hover:font-bold"
+              >
+              <p className="relative group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 group-hover:bg-clip-text group-hover:text-transparent">
                 More about us
-                <span
-                  className="absolute inset-0 w-0 overflow-hidden text-red-500 transition-all group-hover:w-full"
-                ></span>
               </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 text-gray-900 transition-transform stroke-[3] group-hover:translate-x-1 group-hover:text-red-500"
+                className="w-4 h-4 text-black transition-all duration-300 group-hover:text-blue-400 group-hover:scale-125"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-              >
-                <path
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                ></path>
+                >
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
               <span
-                className="absolute bottom-[-7px] left-0 h-[2px] w-0 bg-red-500 transition-all group-hover:w-full"
-              ></span>
+                className="absolute bottom-[-7px] left-0 h-[2px] w-0 bg-gradient-to-r from-purple-400 to-blue-400 transition-all group-hover:w-full"
+                ></span>
             </button>
+                </Link>
+
           </div>
           <div className='w-2/5 relative'>
             <span>
