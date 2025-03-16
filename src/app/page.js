@@ -217,7 +217,7 @@ export default function Home() {
         </section>
 
         {/* Portfolio Stats */}
-        <div className='px-5'>
+        <div className='px-5 lg:px-40'>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 my-16">
             {[
