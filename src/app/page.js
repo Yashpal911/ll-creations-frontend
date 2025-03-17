@@ -172,7 +172,7 @@ export default function Home() {
               effect={"fade"}
               loop={true}
               autoplay={{
-                delay: 10000000000,
+                delay: 3000,
                 disableOnInteraction: false,
               }}
               modules={[Autoplay]}
