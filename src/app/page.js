@@ -1,6 +1,5 @@
 import HomePageComponent from '@/components/mainPage/page';
 import clientPromise from '@/lib/mongodb';
-import Title from './testpage/page';
 
 
 const fetchData = async () => {
