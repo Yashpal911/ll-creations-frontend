@@ -66,7 +66,7 @@ const BannerImages = [
   '/Images/img4.jpg'
 ];
 
-export default function HomePageComponent( {HomeData} ) {
+export default function HomePageComponent({ HomeData }) {
   let swiperInstance = null;
 
   return (
@@ -90,7 +90,9 @@ export default function HomePageComponent( {HomeData} ) {
             className="mySwiper h-[85vh]"
           >
             {HomeData.length === 0 ? (
-              <p>No data found.</p>
+              <SwiperSlide className="relative">
+                <p>No data found.</p>
+              </SwiperSlide>
             ) : (
               HomeData.map((item, index) => (
                 <SwiperSlide key={item.id ?? index} className="relative">
@@ -139,11 +141,12 @@ export default function HomePageComponent( {HomeData} ) {
               <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
                 <div className="bg-gray-200 w-full h-full min-h-64 relative">
                   <Image
-                    src="/Images/about-bg.jpg"
+                    src="/Images/ copy.jpg"
                     width={500}
                     height={500}
                     alt='img'
                     className='rounded-3xl w-full h-full object-cover'
+                    unoptimized
                   />
 
                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
@@ -204,13 +207,13 @@ export default function HomePageComponent( {HomeData} ) {
                       <div className='overflow-hidden rounded-t-[20px]'>
                         <img src={data.img} className='serviceImg' />
                       </div>
-                      <Link href="/logoDisplay" className='hover:no-underline'><h5 className='mt-6 px-3 serviceHeading font-extrabold text-lg'>{data.heading}</h5></Link>
+                      <Link href="/displayPage" className='hover:no-underline'><h5 className='mt-6 px-3 serviceHeading font-extrabold text-lg'>{data.heading}</h5></Link>
                       <p className='text-gray-400 mt-4 px-3 text-base line-clamp-3'>
                         {data.description}
                       </p>
                     </Card.Body>
                     <Card.Footer>
-                      <Link href="/logoDisplay" className='hover:no-underline' >
+                      <Link href="/displayPage" className='hover:no-underline' >
                         <button
                           className="relative flex items-center gap-2 mx-2 font-semibold text-base text-black transition-all group group-hover:font-bold"
                         >

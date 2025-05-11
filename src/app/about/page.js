@@ -134,7 +134,7 @@ export default function About() {
                     </div>
                     <div className="max-w-6xl mx-auto px-4 relative z-10">
                         <p className="!leading-normal text-4xl md:text-5xl font-bold mb-6 text-black text-center">
-                            Bringing <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">imagination</span> to life, <br /> 
+                            Bringing <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-600">imagination</span> to life, <br />
                             With designs that tell <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">your story</span>.
                         </p>
                     </div>
@@ -145,10 +145,10 @@ export default function About() {
                     <div className="max-w-6xl mx-auto">
                         <div className="grid md:grid-cols-2 gap-12 items-center">
                             <div className="relative z-10">
-                        <h2 className="text-4xl font-bold mb-8 text-black relative inline-block">
-                            Our Story
-                            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
-                        </h2>
+                                <h2 className="text-4xl font-bold mb-8 text-black relative inline-block">
+                                    Our Story
+                                    <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-blue-400"></div>
+                                </h2>
                                 <div className="absolute -z-10 w-32 h-32 bg-blue-200 rounded-full blur-xl opacity-30 -top-10 -left-10"></div>
                                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
                                     What started as a small idea soon became a journey fueled by creativity and passion. <br />
@@ -166,23 +166,23 @@ export default function About() {
                                     </strong>
                                 </p>
                             </div>
-                         <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
-                                        <div className="bg-gray-200 w-full h-full min-h-64 relative">
-                                          <Image
-                                            src="/Images/about-bg.jpg"
-                                            width={500}
-                                            height={500}
-                                            alt='img'
-                                            className='rounded-3xl w-full h-full object-cover'
-                                          />
-                        
-                                          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
-                                          <div className="absolute -bottom-6 -right-6 w-[20%] h-[20%] bg-blue-300 rounded-full opacity-30 blur-xl"></div>
-                                        </div>
-                        
-                                        <div className="absolute -bottom-2 -left-2 w-[15%] h-[15%] border-4 border-purple-300"></div>
-                                        <div className="absolute -top-2 -right-2 w-[15%] h-[15%] border-4 border-blue-300"></div>
-                                      </div>
+                            <div className="rounded-lg overflow-hidden shadow-lg h-full relative">
+                                <div className="bg-gray-200 w-full h-full min-h-64 relative">
+                                    <Image
+                                        src="/Images/lucky tha designer copy.jpg"
+                                        width={500}
+                                        height={500}
+                                        alt='img'
+                                        className='rounded-lg w-full h-full object-cover'
+                                    />
+
+                                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-purple-500/10 to-transparent"></div>
+                                    <div className="absolute -bottom-6 -right-6 w-[20%] h-[20%] bg-blue-300 rounded-full opacity-30 blur-xl"></div>
+                                </div>
+
+                                <div className="absolute -bottom-2 -left-2 w-[15%] h-[15%] border-4 border-purple-300"></div>
+                                <div className="absolute -top-2 -right-2 w-[15%] h-[15%] border-4 border-blue-300"></div>
+                            </div>
                         </div>
                     </div>
                 </section>

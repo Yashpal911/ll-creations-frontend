@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -38,13 +39,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex lg:flex-1">
             <Link href="/" className="group flex items-center space-x-2">
-              <div className="relative overflow-hidden rounded-full w-10 h-10 flex items-center justify-center bg-gradient-to-br from-emerald-400 to-blue-600 transition-all duration-300 group-hover:scale-110">
-                <span className="font-bold text-white text-lg">LC</span>
-                <div className="absolute inset-0 bg-white mix-blend-overlay opacity-0 group-hover:opacity-20 transition-opacity"></div>
-              </div>
-              <span className="font-bold text-lg text-gray-900 group-hover:text-emerald-500 transition-colors">
-                <span className="text-emerald-500">LL</span> Creations
-              </span>
+              <Image src="/Images/ll creation new.png" height={100} width={100} alt="Logo"/>
             </Link>
           </div>
 
