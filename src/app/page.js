@@ -22,5 +22,7 @@ export default async function Home() {
     <div>
       <HomePageComponent  HomeData={HomeData} />
     </div>
+
+      
   );
 }
